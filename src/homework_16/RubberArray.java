@@ -101,19 +101,50 @@ public class RubberArray {
         for (int i = 0; i < array.length; i++) {
             if (array[i] != 0) count++;
         }
-            System.out.println("Текущее количество элементов в массиве: " + count);
+        System.out.println("Текущее количество элементов в массиве: " + count);
     }
 
-//    8. Удаление элемента по индексу
-//    9. Добавление нескольких элементов (в качестве аргументов передает последовательность значений)
+    //    8. Удаление элемента по индексу
+    public int remove(int index) {
+//        1. Проверка
+        if (index < 0 && index >= cursor) {
+            // такого индекса в массиве нет
+            return Integer.MIN_VALUE;
+        }
+
+        int value = array[index];
+        for (int i = index; i < cursor - 1; i++) {
+            array[i] = array[i + 1];
+        }
+        cursor--;
+        return value;
+
+    }
+
+    //    9. Добавление нескольких элементов (в качестве аргументов передает последовательность значений)
 //    10. Конструктор, принимающий в себя обычный массив и создающий RubberArray с такими де значениями
 //    11. Удаление элемента по значению
+    public boolean removeByValue(int value) {
+    // понять есть лии такой элемент в нашем массиве
+    // если нет - вернуть false и закончить работу методы
+    // если есть - получить его индекс
+    // переиспользовать метод, удаляющий по индексу.
+
+//    int index = indexOf(value); // TODO надо переписать мой метод
+//    if (index == -1) return false;
+//
+//    remove(index);
+    return true;
+
+    }
+
 //    12. Замена значения по индексу (есть индекс и новое значение)
-    void replaceTargetToIndex (int target, int index) {
+    void replaceTargetToIndex(int target, int index) {
         array[index] = target;
     }
-//    13. Замена значения по значению (есть старое и новое значение)
-    void  replaceTargetToTarget (int oldTarget, int newTarget) {
+
+    //    13. Замена значения по значению (есть старое и новое значение)
+    void replaceTargetToTarget(int oldTarget, int newTarget) {
         for (int i = 0; i < array.length; i++) {
             if (array[i] == oldTarget) array[i] = newTarget;
         }
