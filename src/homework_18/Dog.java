@@ -12,8 +12,16 @@ package homework_18;
 Если да -> идем тренироваться -> берет барьер
  */
 
+/*
+Homework 19
+Добавить в класс константу. Использовать эту константу в классе.
+Добавить в класс поле, в котором будет храниться количество прыжков, сделанных всеми объектами класса.
+Добавить в класс статический метод, возвращающий общее количество прыжков, сделанных всеми собаками
+ */
+
 public class Dog {
 
+    private static int countJump;
     private String name;
     private int jumpHeight;
     private static int increasePerOneTraining;
@@ -25,12 +33,17 @@ public class Dog {
         this.maxJumpHeight = jumpHeight * 2;
     }
 
+    public static int getCountJump() {
+        return countJump;
+    }
+
     static {
         increasePerOneTraining = 10;
     }
 
     public void jump() {
         System.out.println("Собака прыгает на " + jumpHeight + " см.");
+//        countJump++;
     }
 
     private void train() {
@@ -39,6 +52,7 @@ public class Dog {
 //        jumpHeight = (jumpHeight > maxJumpHeight) ? maxJumpHeight : jumpHeight;
         jumpHeight = Math.min(jumpHeight, maxJumpHeight); // метод возвращает меньшее из двух чисел
         System.out.println(" ==== прыжок после тренировки ==== " + jumpHeight);
+        countJump++;
     }
 
     public boolean takeBarrier(int heightBarrier) {

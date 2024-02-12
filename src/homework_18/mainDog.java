@@ -5,8 +5,10 @@ public class mainDog {
         Dog dog = new Dog("Gerkules", 50);
 
         dog.info();
+        dog.jump();
 
         dog.takeBarrier(80);
+        System.out.println("Всего выполнено прыжков: " + Dog.getCountJump());
 
         System.out.println("\n=============================\n");
 
@@ -14,5 +16,6 @@ public class mainDog {
         dog1.info();
         dog1.takeBarrier(85);
 
+        System.out.println("Всего выполнено прыжков: " + Dog.getCountJump());
     }
 }
