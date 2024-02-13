@@ -11,7 +11,8 @@ package homework_20;
 public class Bus extends Vehicle {
     private int capacity;
     private int countPassengers;
-    private static int totalPassenger;
+    private int totalPassenger; // общее количество пассажиров, перевезенных этим, конкретным автобусом.
+//    private static int totalPassenger; // общее количество пассажиров, перевезенных ВСЕМИ автобусами. Static - не принадлежит не кому!!!
 
     public Bus(String model, int yearManufactured, int capacity) {
         // чтобы создать объект - родителя, нам нужно вызвать конструктор!
