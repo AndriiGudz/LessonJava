@@ -10,10 +10,10 @@ public class ProductMain {
         Product product2 = new Product("Хлеб черный", 1.55);
         Product product3 = new Product("Сыр плавленный", 2.31);
 
-        product.info();
-        product1.info();
-        product2.info();
-        product3.info();
+        System.out.println(product.info());
+        System.out.println(product1.info());
+        System.out.println(product2.info());
+        System.out.println(product3.info());
 
         System.out.println("=====================");
         product2.changePrice(10);

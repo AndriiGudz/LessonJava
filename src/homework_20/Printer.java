@@ -13,8 +13,6 @@ public class Printer extends ElectronicDevice {
     }
 
     public String info() {
-        super.info();
-        System.out.println("Тип принтера: " + printType + " | Интерфейс: " + printInterface + " | Максимальный формат: " + maxFormat);
-        return null;
+        return super.info() + " | Тип принтера: " + printType + " | Интерфейс: " + printInterface + " | Максимальный формат: " + maxFormat;
     }
 }

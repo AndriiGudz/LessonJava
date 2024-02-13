@@ -18,7 +18,6 @@ public class ElectronicDevice {
     }
 
     public String info() {
-        System.out.println("Производитель: " + manufacturer + " | Модель: " + model + " | Год выпуска: " + year);
-        return null;
+        return  "Производитель: " + manufacturer + " | Модель: " + model + " | Год выпуска: " + year;
     }
 }

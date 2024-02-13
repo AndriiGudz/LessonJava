@@ -13,8 +13,6 @@ public class Laptop extends ElectronicDevice {
     }
 
     public String info() {
-        super.info();
-        System.out.println("Тип экрана: " + screenType + " | Диагональ экрана: " + screenDiagonal + " | Объем памяти: " + memory);
-        return null;
+        return super.info() + " | Тип экрана: " + screenType + " | Диагональ экрана: " + screenDiagonal + " | Объем памяти: " + memory;
     }
 }

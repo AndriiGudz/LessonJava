@@ -54,8 +54,7 @@ public class Product {
     }
 
     public String info() {
-        System.out.println("Id продукта: " + id + " | Название продукта: " + name + " | Цена: " + price);
-        return null;
+        return "Id продукта: " + id + " | Название продукта: " + name + " | Цена: " + price;
     }
 
     public void changePrice(int percent) {
