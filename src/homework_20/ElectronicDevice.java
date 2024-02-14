@@ -11,6 +11,7 @@ public class ElectronicDevice {
     private String model;
     private int year;
 
+
     public ElectronicDevice(String manufacturer, String model, int year) {
         this.manufacturer = manufacturer;
         this.model = model;

@@ -50,7 +50,12 @@ public class Autobus {
     }
 
     public String toString() {
-        return "Autobus: {" + "driver: " + driver.getLicenseNumber() + "; autopilot: " + autoPilot.getSoftwareVersion() + "}";
+        //Переписать, используя StringBuilder
+        //Добавить в эту строку - список пассажиров.
+        //return "Autobus: {" + "driver: " + driver.getLicenseNumber() + "; autopilot: " + autoPilot.getSoftwareVersion() + "}";
+        StringBuilder sb = new StringBuilder();
+        sb.append("Autobus: {driver: ").append(driver.getLicenseNumber()).append("; autopilot: ").append(autoPilot.getSoftwareVersion()).append(" " + getStringPassengersList());
+        return sb.toString();
     }
 
     public String getStringPassengersList() {

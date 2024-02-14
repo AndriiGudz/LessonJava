@@ -7,8 +7,10 @@ public class ElectronicDeviceMain {
 
         System.out.println("==============================");
 
-        Laptop laptop = new Laptop("Lenovo", "ThinkPad", 2022, "TFT", 13.2, 250);
+        Storage storage = new Storage("SSD");
+        Laptop laptop = new Laptop("Lenovo", "ThinkPad", 2022, "TFT", 13.2, 250, storage);
         System.out.println(laptop.info());
+
 
         System.out.println("==============================");
 
