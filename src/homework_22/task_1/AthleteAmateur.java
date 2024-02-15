@@ -1,8 +1,13 @@
 package homework_22.task_1;
 
 public class AthleteAmateur extends Human {
-    private final static int runSpeed = 15;
-    private final static int timeRelax = 10;
+    private int runSpeed ;
+    private int timeRelax;
+
+    public AthleteAmateur(int runSpeed, int timeRelax) {
+        this.runSpeed = runSpeed;
+        this.timeRelax = timeRelax;
+    }
 
     @Override
     public void run() {

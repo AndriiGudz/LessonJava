@@ -8,8 +8,30 @@ Task 1:
  */
 public class Human {
 
-    private final static int runSpeed = 10;
-    private final static int timeRelax = 15;
+    private static int runSpeed = 10;
+    private static int timeRelax = 15;
+
+    public Human() {
+        this.runSpeed = runSpeed;
+        this.timeRelax = timeRelax;
+    }
+
+    public static int getRunSpeed() {
+        return runSpeed;
+    }
+
+    public static void setRunSpeed(int runSpeed) {
+        Human.runSpeed = runSpeed;
+    }
+
+    public static int getTimeRelax() {
+        return timeRelax;
+    }
+
+    public static void setTimeRelax(int timeRelax) {
+        Human.timeRelax = timeRelax;
+    }
+
     public void run () {
         System.out.println("Человек бежит со скоростью " + runSpeed + " км/ч");
         relax();
