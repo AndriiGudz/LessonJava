@@ -1,4 +1,5 @@
 package homework_22.task_3;
+
 /*
 Task 3
 Фигуры и их площади
@@ -8,8 +9,7 @@ Task 3
 В главном классе создайте список фигур и вычислите площадь каждой из них.
  */
 public class Figure {
-//    public double square(){
-//
-//        return result;
-//    }
+    public double calculateArea() {
+        return 0;
+    }
 }
