@@ -75,19 +75,27 @@ public class RubberArray {
     //    =============================================================
 //    Домашняя работа
 //    5. Поиск элемента по значению
-    void foundIndex(int target) {
-        boolean foundTarget = false;
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] == target) {
-                foundTarget = true;
-                System.out.println("Найдено искомое значение: " + target);
-                break;
-            }
+    public int indexOf(int value) {
+        // так int, в качестве значение, а не индекса - проверять нам его не нужно
+        for (int i = 0; i < cursor; i++) {
+            if (array[i] == value) return i;
         }
-        if (foundTarget == false) {
-            System.out.println("Искомое значение: " + target + " не найденно.");
-        }
+
+        return -1;
     }
+//    void foundIndex(int target) {
+//        boolean foundTarget = false;
+//        for (int i = 0; i < array.length; i++) {
+//            if (array[i] == target) {
+//                foundTarget = true;
+//                System.out.println("Найдено искомое значение: " + target);
+//                break;
+//            }
+//        }
+//        if (foundTarget == false) {
+//            System.out.println("Искомое значение: " + target + " не найденно.");
+//        }
+//    }
 
     //    6. Возвращение значения по индексу
     void foundTargetInIndex(int index) {
@@ -130,10 +138,10 @@ public class RubberArray {
     // если есть - получить его индекс
     // переиспользовать метод, удаляющий по индексу.
 
-//    int index = indexOf(value); // TODO надо переписать мой метод
-//    if (index == -1) return false;
-//
-//    remove(index);
+    int index = indexOf(value);
+    if (index == -1) return false;
+
+    remove(index);
     return true;
 
     }

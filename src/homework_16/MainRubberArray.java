@@ -24,7 +24,7 @@ public class MainRubberArray {
         System.out.println(ra.toString());
 
         System.out.println("\nПроверка домашнего задания\n");
-        ra.foundIndex(-10);
+//        ra.foundIndex(-10);
         ra.foundTargetInIndex(6);
         ra.foundLength();
 
