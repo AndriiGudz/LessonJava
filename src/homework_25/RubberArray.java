@@ -18,6 +18,7 @@ public class RubberArray<T> implements MyList<T> {
             add(values[i]);
         }
     }
+
     // Метод для расширения массива
     private void expandArray() {
         T[] newArray = (T[]) new Object[array.length * 2];
@@ -43,7 +44,6 @@ public class RubberArray<T> implements MyList<T> {
         }
     }
 
-
     // Вывод в консоль значений массива
     public String toString() {
         if (cursor == 0) return "[]";
@@ -59,5 +59,18 @@ public class RubberArray<T> implements MyList<T> {
     @Override
     public int size() {
         return cursor;
+    }
+
+    // Поиск элемента по значению
+    @Override
+    public int indexOf(T value) {
+        for (int i = 0; i < cursor; i++) {
+            if (array[i].equals(value)) {
+                System.out.println("Искомое значение \"" + value + "\" есть в массиве");
+                return i;
+            }
+        }
+        System.out.println("Искомое значение \"" + value + "\" отсутствует в массиве");
+        return -1;
     }
 }

@@ -26,15 +26,7 @@
 //        }
 //    }
 //
-//    // Поиск элемента по значению (у нас есть значение, надо узнать есть ли такое значение в массиве
-//    public int indexOf(int value) {
-//        // так int, в качестве значение, а не индекса - проверять нам его не нужно
-//        for (int i = 0; i < cursor; i++) {
-//            if (array[i] == value) return i;
-//        }
-//
-//        return -1;
-//    }
+
 //
 //    public void showCursor() {
 //        System.out.println("array[cursor-1]= " + array[cursor - 1]);
