@@ -25,7 +25,7 @@ public class RubberArray<T> implements MyList<T> {
         array = newArray;
     }
 
-    // TODO Добавлять в массив элемент
+    // Добавлять в массив элемент
     @Override
     public void add(T value) {
         if (cursor > array.length * 0.9) {
@@ -35,7 +35,7 @@ public class RubberArray<T> implements MyList<T> {
         cursor++;
     }
 
-    //Добавлять в массив сразу несколько элементов
+    // Добавлять в массив сразу несколько элементов
     @Override
     public void addAll(T... values) {
         for (int i = 0; i < values.length; i++) {
@@ -44,7 +44,7 @@ public class RubberArray<T> implements MyList<T> {
     }
 
 
-    //Вывод в консоль значений массива
+    // Вывод в консоль значений массива
     public String toString() {
         if (cursor == 0) return "[]";
 
@@ -55,6 +55,9 @@ public class RubberArray<T> implements MyList<T> {
         return result;
     }
 
-
-
+    // Возвращает количество элементов в массиве
+    @Override
+    public int size() {
+        return cursor;
+    }
 }
