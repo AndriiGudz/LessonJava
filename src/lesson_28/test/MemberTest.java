@@ -49,6 +49,35 @@ class MemberTest {
                 "@test.email.net"
         );
     }
+    /*
+    Требования к валидности паролю
+    1. длина пароля больше 8 символов >= 8
+    2. мин. 1 маленькая буква
+    3. мин. 1 большая буква
+    4. мин. 1 цифра
+    5. мин. 1 спец символ ("!%$@*&()[])
+     */
+    @ParameterizedTest
+    @MethodSource("invalidPasswordData")
+    public void testSetInvalidPassword(String password) {
+        member.setPassword(password);
+        Assertions.assertEquals(startPassword, member.getPassword());
+    }
 
+    static Stream<String> invalidPasswordData() {
+        return Stream.of(
+                "qwerty1Qa",
+                "qwerty%###",
+                "qwerty1q$",
+                "qwertywwwwQ$",
+                "QWERTY1Q$",
+                "qwerty1Q$"
+        );
+    }
+
+    @Test
+    public void testPasswordIsNotNull() {
+        Assertions.assertNotNull(member.getPassword());
+    }
 
 }
