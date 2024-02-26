@@ -1,5 +1,6 @@
 package homework_25;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class RubberArray<T> implements MyList<T> {
@@ -125,9 +126,25 @@ public class RubberArray<T> implements MyList<T> {
         for (int i = 0; i < cursor; i++) {
             result[i] = array[i];
         }
+        System.out.println("========== instanceof: " + (result[0] instanceof Integer));
         // return Arrays.copyOf(array, cursor); - альтернативный вариант
         // System.arraycopy(array, 0, result, 0, cursor); - альтернативный вариант
         return result;
+    }
+
+    public T[] toArray(Class<T> clazz) {
+
+
+        // Рефлексия
+        // 1. Создаем массив длинной cursor(кол-во элементов во внутреннем массиве)
+        @SuppressWarnings("unchecked")
+        T[] result = (T[]) Array.newInstance(clazz, cursor);
+        for (int i = 0; i < cursor; i++) {
+            result[i] = array[i];
+        }
+
+        System.out.println("========== instanceof: " + (result[0] instanceof Integer));
+        return result; // Integer[]
     }
 
     // Удаляет один элемент по значению
