@@ -109,7 +109,7 @@ public class MyLinkedList<T> implements MyList<T> {
 
     @Override
     public void addAll(T... values) {
-        for (T value: values) {
+        for (T value : values) {
             add(value);
         }
     }
@@ -160,7 +160,7 @@ public class MyLinkedList<T> implements MyList<T> {
         }
 
         // обработка сценария, когда есть только нода first
-        if (first != null &&  first.value.equals(value)) return 0;
+        if (first != null && first.value.equals(value)) return 0;
         // альтернативная проверка
 //        if (size != 0  &&  first.value.equals(value)) return 0;
 
@@ -168,7 +168,7 @@ public class MyLinkedList<T> implements MyList<T> {
     }
 
     private void removeNode(Node<T> node) {
-        if (node == first){
+        if (node == first) {
             remove();
             return;
         }
@@ -189,41 +189,79 @@ public class MyLinkedList<T> implements MyList<T> {
 
     @Override
     public boolean contains(T value) {
-        return false;
+        return indexOf(value) >= 0;
     }
 
     @Override
     @SuppressWarnings("unchecked")
     public T[] toArray() {
 
+        if (first == null) return null;
 
         T[] result = (T[]) Array.newInstance(first.value.getClass(), size);
+        Node<T> cursor = first;
+        int index = 0;
+        while (cursor != null) {
+            result[index++] = cursor.value;
+            cursor = cursor.next;
+        }
 
         return result;
     }
 
     @Override
     public boolean remove(T value) {
+        Node<T> cursor = first;
+        while (cursor != null) {
+            if (cursor.value.equals(value)) {
+                removeNode(cursor);
+                return true;
+            }
+            cursor = cursor.next;
+        }
         return false;
+    }
+
+    private Node<T> searchNodeByIndex(int index) {
+        Node<T> cursor;
+        if (index <= size / 2) {
+            cursor = first;
+            for (int i = 0; i < index; i++) {
+                cursor = cursor.next;
+            }
+        } else {
+            cursor = last;
+            for (int i = size - 1; i > index; i--) {
+                cursor = cursor.previous;
+            }
+        }
+        return cursor;
     }
 
     @Override
     public T remove(int index) {
-        return null;
+        if (index < 0 || index >= size) return null;
+        Node<T> nodeForRemove = searchNodeByIndex(index);
+        T value = nodeForRemove.value;
+
+        removeNode(nodeForRemove);
+        return value;
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return size == 0;
     }
 
     @Override
     public T get(int index) {
-        return null;
+        if (index < 0 || index >= size) return null;
+        return searchNodeByIndex(index).value;
     }
 
     @Override
     public void set(int index, T value) {
+
 
     }
 
