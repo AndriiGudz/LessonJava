@@ -29,11 +29,16 @@ public class StreamExample {
         // task2();
         // task3();
         // task4();
-        task5();
+        // task5();
+        task6();
 
 
 
     } // main
+
+    private static void task6() {
+        // Получить список имен кошек, которые короче 5 символов
+    }
 
     private static void task5() {
         // Получить список имен кошек, чей вес больше 4
