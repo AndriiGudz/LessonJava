@@ -11,7 +11,12 @@ public class InterfacesExample {
         // Consumer<T> - выполняет операции над объектом типа Т. Не возвращает никакого результата.
         // void accept(T t)
 
-        //Consumer<String> TODO надо дописать
+        Consumer<String> example = new Consumer<String>() {
+            @Override
+            public void accept(String s) {
+
+            }
+        };
 
         Consumer<String> printConsumer = t -> System.out.println(t + "!!!");
         printConsumer.accept("Hello World");
