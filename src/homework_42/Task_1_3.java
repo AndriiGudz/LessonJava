@@ -8,12 +8,18 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /*
+Task 1
 Дан список сотрудников (Employee) с полями name, department, salary.
 Используя Stream API, сгруппируйте сотрудников по отделам
+
+Task 3
+Дан список Employee.
+Вычислите среднюю зарплату сотрудников в каждом отделе и найдите отдел с максимальной средней зарплатой.
  */
-public class Task_1 {
+public class Task_1_3 {
     public static void main(String[] args) {
         groupEmployee();
+        // task3();
     }
     private static void groupEmployee() {
         List<lesson_42.groupBy.Employee> employees = new ArrayList<>(List.of(
@@ -36,5 +42,28 @@ public class Task_1 {
             employeeList.forEach(employee -> System.out.println("    " + employee));
         });
 
+    }
+
+    private static void task3(List<Employee> employees) {
+
+        Map<String, Double> averageSalaries = employees.stream()
+                .collect(Collectors.groupingBy(Employee::getDepartment, Collectors.averagingDouble(Employee::getSalary)));
+
+        System.out.println(averageSalaries);
+
+        Map.Entry<String, Double> maxAverage1 = averageSalaries.entrySet()
+                .stream()
+                .max((entry1, entry2) -> entry1.getValue().compareTo(entry2.getValue()))
+                .orElse(null);
+
+        Map.Entry<String, Double> maxAverage2 = averageSalaries.entrySet()
+                .stream()
+                .max(Map.Entry.comparingByValue())
+                .orElse(null);
+
+        System.out.println("Отдел с максимальной зарплатой:");
+        if (maxAverage1 != null) {
+            System.out.println(maxAverage1.getKey() + " | ср. зп: " + maxAverage1.getValue());
+        }
     }
 }
